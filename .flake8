@@ -1,0 +1,12 @@
+[flake8]
+# Specify the paths to ignore
+exclude =
+    # Directories
+    .git,
+    __pycache__,
+    build,
+    dist
+# Set max line length (optional)
+max-line-length = 88
+# Set max complexity (optional, if you want to limit complexity)
+max-complexity = 10
