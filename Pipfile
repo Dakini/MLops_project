@@ -9,11 +9,14 @@ scikit-learn = "*"
 xgboost = "*"
 boto3 = "*"
 seaborn = "*"
+ipykernel = "*"
 
 [dev-packages]
 pytest = "*"
 flake8 = "*"
 black = "*"
+jupyter = "*"
+nbclassic = "*"
 
 [requires]
 python_version = "3.10"

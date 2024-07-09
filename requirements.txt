@@ -1,0 +1,10 @@
+boto3
+mlflow
+jupyter
+nbclassic
+scikit-learn
+xgboost
+pre-commit
+pytest
+flake8
+black
