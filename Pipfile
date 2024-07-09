@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+mlflow = "*"
+scikit-learn = "*"
+xgboost = "*"
+boto3 = "*"
+
+[dev-packages]
+pytest = "*"
+flake8 = "*"
+black = "*"
+
+[requires]
+python_version = "3.10"
+python_full_version = "3.10.14"
