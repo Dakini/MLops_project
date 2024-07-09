@@ -8,6 +8,7 @@ mlflow = "*"
 scikit-learn = "*"
 xgboost = "*"
 boto3 = "*"
+seaborn = "*"
 
 [dev-packages]
 pytest = "*"
