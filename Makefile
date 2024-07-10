@@ -1,2 +1,3 @@
 setup:
-	poetry install --no-root
+	pipenv install --dev
+	pre-commit install
