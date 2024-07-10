@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  mlflow:
+    image: mlflow:latest
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - MLFLOW_BACKEND_STORE_URI=postgresql://mlflow_user:mlflow_pass@postgres:5432/mlflow_db
+      - MLFLOW_ARTIFACT_STORE=s3://mlflow/
+      - AWS_ACCESS_KEY_ID=minioadmin
+      - AWS_SECRET_ACCESS_KEY=minioadmin
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    command: mlflow server --backend-store-uri postgresql://mlflow_user:mlflow_pass@postgres:5432/mlflow_db --default-artifact-root s3://mlflow --host 0.0.0.0
+    networks:
+      - mlflow_network
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: mlflow_user
+      POSTGRES_PASSWORD: mlflow_pass
+      POSTGRES_DB: mlflow_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - mlflow_network
+
+volumes:
+  pgdata:
+  minio_data:
+
+networks:
+  mlflow_network:
+    driver: bridge
