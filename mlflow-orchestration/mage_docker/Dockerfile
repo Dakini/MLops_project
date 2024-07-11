@@ -1,8 +1,13 @@
 FROM mageai/mageai:latest
 
-ARG USER_CODE_PATH=/home/src/${PROJECT_NAME}
+WORKDIR /app
+
+# # Copy all files from the mage_docker directory to /app
+COPY ./mlflow-orchestration/mage_docker /app
 
 
-RUN find . -type d -print
-COPY requirements.txt ${USER_CODE_PATH}/requirements.txt
-RUN pip install -r ${USER_CODE_PATH}/requirements.txt
+# # Install dependencies
+RUN pip install -r requirements.txt
+
+#expose the code for the docker
+RUN export PYTHONPATH=$PYTHONPATH:/app/project_code

@@ -14,6 +14,6 @@ else
 fi
 
 ls
-docker-compose up #-d --build
+docker-compose up  --build
 
 sleep 5

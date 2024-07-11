@@ -42,20 +42,21 @@ services:
 
   magic:
     image: mageai/mageai:latest
-    command: sh -c 'echo "cunt" && ls && mage start ${PROJECT_NAME}'
+
     env_file:
       - .env
     build:
-      context: ./mage_docker/
-      dockerfile: Dockerfile
+      context: ../
+      dockerfile: ./mlflow-orchestration/mage_docker/Dockerfile
     environment:
-      USER_CODE_PATH: /home/src/${PROJECT_NAME}
+      USER_CODE_PATH: ${PROJECT_NAME}
       ENV: ${ENV}
     ports:
       - 6789:6789
     volumes:
-      - .:/home/src/
+      - .:/app/
     restart: on-failure:5
+    command: sh -c 'mage start ${PROJECT_NAME}'
     networks:
       - mlflow_network
 volumes:

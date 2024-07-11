@@ -11,7 +11,7 @@ quality_checks:
 build: quality_checks test
 	docker build -t ${LOCAL_IMAGE_NAME} .
 
-setup_mlflow: setup #build
+setup_mlflow: #setup #build
 	LOCAL_IMAGE_NAME=${LOCAL_IMAGE_NAME} mlflow-orchestration/setup.sh
 
 destroy_mlflow:
