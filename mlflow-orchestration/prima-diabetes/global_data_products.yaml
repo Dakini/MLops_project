@@ -1,0 +1,12 @@
+data_ingestion:
+  object_type: pipeline
+  object_uuid: data-ingestion
+  repo_path: /app/prima-diabetes
+  settings:
+    lowercase_columns: {}
+training_data:
+  object_type: pipeline
+  object_uuid: training
+  repo_path: /app/prima-diabetes
+  settings:
+    lowercase_columns: {}

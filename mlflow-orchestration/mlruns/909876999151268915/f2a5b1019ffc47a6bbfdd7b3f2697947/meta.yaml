@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/f2a5b1019ffc47a6bbfdd7b3f2697947/artifacts
+end_time: 1720727080672
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: f2a5b1019ffc47a6bbfdd7b3f2697947
+run_name: delicate-foal-740
+run_uuid: f2a5b1019ffc47a6bbfdd7b3f2697947
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720727077262
+status: 3
+tags: []
+user_id: root

@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/0df1874c54ff42678e7070044c5851a3/artifacts
+end_time: 1720727028031
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: 0df1874c54ff42678e7070044c5851a3
+run_name: sedate-seal-33
+run_uuid: 0df1874c54ff42678e7070044c5851a3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720727025136
+status: 3
+tags: []
+user_id: root

@@ -1,0 +1,185 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: data_loaders/training_pipeline.py
+    file_source:
+      path: data_loaders/training_pipeline.py
+  downstream_blocks:
+  - mellow_violet
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: training pipeline
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: training_pipeline
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - lowercase_columns
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: mellow violet
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - training_pipeline
+  uuid: mellow_violet
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - lowercase_columns_bar_chart_p1
+  - split_data
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: lowercase_columns
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - mellow_violet
+  uuid: lowercase_columns
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - create_train_data
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: split data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - lowercase_columns
+  uuid: split_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - random_forest
+  - xgboost_training
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: create train data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - split_data
+  uuid: create_train_data
+- all_upstream_blocks_executed: true
+  color: teal
+  configuration: {}
+  downstream_blocks:
+  - register_models
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: random_forest
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - create_train_data
+  uuid: random_forest
+- all_upstream_blocks_executed: true
+  color: teal
+  configuration: {}
+  downstream_blocks:
+  - register_models
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: xgboost-training
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - create_train_data
+  uuid: xgboost_training
+- all_upstream_blocks_executed: true
+  color: yellow
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: register_models
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - xgboost_training
+  - random_forest
+  uuid: register_models
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-07-11 11:13:25.913638+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: training
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: data-ingestion
+variables_dir: /home/src/mage_data/prima-diabetes
+widgets:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: vertical
+    chart_type: bar chart
+    x: x
+    y: y
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: lowercase_columns_bar chart_p1
+  retry_config: null
+  status: failed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - lowercase_columns
+  uuid: lowercase_columns_bar_chart_p1

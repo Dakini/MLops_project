@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/abdb9a3769f94be28b4358cc455c709e/artifacts
+end_time: 1720727023061
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: abdb9a3769f94be28b4358cc455c709e
+run_name: tasteful-ray-381
+run_uuid: abdb9a3769f94be28b4358cc455c709e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720727020565
+status: 3
+tags: []
+user_id: root

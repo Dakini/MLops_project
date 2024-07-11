@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/d44b0d63a8d645e39a21b45835a68013/artifacts
+end_time: 1720727018361
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: d44b0d63a8d645e39a21b45835a68013
+run_name: bustling-wren-278
+run_uuid: d44b0d63a8d645e39a21b45835a68013
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720727016488
+status: 3
+tags: []
+user_id: root

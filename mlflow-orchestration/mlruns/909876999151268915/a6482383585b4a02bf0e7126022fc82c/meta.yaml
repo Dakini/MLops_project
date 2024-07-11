@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/a6482383585b4a02bf0e7126022fc82c/artifacts
+end_time: 1720727025131
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: a6482383585b4a02bf0e7126022fc82c
+run_name: debonair-dove-104
+run_uuid: a6482383585b4a02bf0e7126022fc82c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720727023066
+status: 3
+tags: []
+user_id: root

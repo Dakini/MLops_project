@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/c5fbfc0f06324d1cbc99a77dff2cdf60/artifacts
+end_time: 1720727073674
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: c5fbfc0f06324d1cbc99a77dff2cdf60
+run_name: mercurial-calf-946
+run_uuid: c5fbfc0f06324d1cbc99a77dff2cdf60
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720727070605
+status: 3
+tags: []
+user_id: root

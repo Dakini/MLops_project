@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/e8376431bb804b20b077b9a78bc08424/artifacts
+end_time: 1720726990377
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: e8376431bb804b20b077b9a78bc08424
+run_name: incongruous-flea-993
+run_uuid: e8376431bb804b20b077b9a78bc08424
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720726987725
+status: 3
+tags: []
+user_id: root

@@ -1,0 +1,6 @@
+artifact_location: file:///app/mlruns/180067844342530194
+creation_time: 1720723913325
+experiment_id: '180067844342530194'
+last_update_time: 1720723913325
+lifecycle_stage: active
+name: Predict-Diabetes

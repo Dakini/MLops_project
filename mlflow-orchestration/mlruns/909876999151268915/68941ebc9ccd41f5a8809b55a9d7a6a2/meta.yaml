@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/68941ebc9ccd41f5a8809b55a9d7a6a2/artifacts
+end_time: 1720727058256
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: 68941ebc9ccd41f5a8809b55a9d7a6a2
+run_name: caring-lynx-862
+run_uuid: 68941ebc9ccd41f5a8809b55a9d7a6a2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720727055922
+status: 3
+tags: []
+user_id: root

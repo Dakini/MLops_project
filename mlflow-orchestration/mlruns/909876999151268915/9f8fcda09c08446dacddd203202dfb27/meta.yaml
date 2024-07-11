@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/9f8fcda09c08446dacddd203202dfb27/artifacts
+end_time: 1720727013976
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: 9f8fcda09c08446dacddd203202dfb27
+run_name: beautiful-bass-209
+run_uuid: 9f8fcda09c08446dacddd203202dfb27
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720727011027
+status: 3
+tags: []
+user_id: root

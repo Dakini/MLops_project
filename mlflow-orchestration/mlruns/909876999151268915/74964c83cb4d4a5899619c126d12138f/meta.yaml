@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/74964c83cb4d4a5899619c126d12138f/artifacts
+end_time: 1720727070536
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: 74964c83cb4d4a5899619c126d12138f
+run_name: spiffy-gnat-436
+run_uuid: 74964c83cb4d4a5899619c126d12138f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720727068054
+status: 3
+tags: []
+user_id: root

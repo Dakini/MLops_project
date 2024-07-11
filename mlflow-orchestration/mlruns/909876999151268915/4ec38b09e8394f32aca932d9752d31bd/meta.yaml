@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/4ec38b09e8394f32aca932d9752d31bd/artifacts
+end_time: 1720727077258
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: 4ec38b09e8394f32aca932d9752d31bd
+run_name: defiant-wolf-994
+run_uuid: 4ec38b09e8394f32aca932d9752d31bd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720727073679
+status: 3
+tags: []
+user_id: root

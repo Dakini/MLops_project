@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/d387720302914cacbca13b22c47984ae/artifacts
+end_time: 1720727062824
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: d387720302914cacbca13b22c47984ae
+run_name: bedecked-rat-476
+run_uuid: d387720302914cacbca13b22c47984ae
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720727061019
+status: 3
+tags: []
+user_id: root

@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/909876999151268915/a06bc945fa8b4c75ba8ef4348e198995/artifacts
+end_time: 1720727055916
+entry_point_name: ''
+experiment_id: '909876999151268915'
+lifecycle_stage: active
+run_id: a06bc945fa8b4c75ba8ef4348e198995
+run_name: smiling-smelt-141
+run_uuid: a06bc945fa8b4c75ba8ef4348e198995
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720727053183
+status: 3
+tags: []
+user_id: root
