@@ -61,7 +61,7 @@ def transform_custom(data, *args, **kwargs):
         fn=objective,
         space=search_space,
         algo=tpe.suggest,
-        max_evals=1,
+        max_evals=10,
         trials=Trials(),
         verbose=False,
     )
