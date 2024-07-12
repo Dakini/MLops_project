@@ -3,7 +3,7 @@ FROM mageai/mageai:latest
 WORKDIR /app
 
 # # Copy all files from the mage_docker directory to /app
-COPY ./mlflow-orchestration/mage_docker /app
+COPY ./orchestration/mage_docker /app
 
 
 # # Install dependencies

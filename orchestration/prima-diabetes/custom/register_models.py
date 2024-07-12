@@ -2,10 +2,11 @@ import mlflow
 from mlflow import MlflowClient
 import time
 
+mlflow.set_tracking_uri(uri="http://mlflow:5001")
+mlflow.set_experiment("diabetes")
+
 if "custom" not in globals():
     from mage_ai.data_preparation.decorators import custom
-if "test" not in globals():
-    from mage_ai.data_preparation.decorators import test
 
 
 @custom
@@ -31,11 +32,3 @@ def transform_custom(*args, **kwargs):
     client.set_registered_model_alias(model_name, "champion", model_version.version)
 
     return {}
-
-
-@test
-def test_output(output, *args) -> None:
-    """
-    Template code for testing the output of the block.
-    """
-    assert output is not None, "The output is undefined"

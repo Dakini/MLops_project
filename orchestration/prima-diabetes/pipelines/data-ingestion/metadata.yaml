@@ -13,7 +13,7 @@ blocks:
   language: python
   name: training pipeline
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_loader
   upstream_blocks: []
@@ -116,7 +116,7 @@ blocks:
   language: python
   name: xgboost-training
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: custom
   upstream_blocks:
@@ -132,7 +132,7 @@ blocks:
   language: python
   name: register_models
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: custom
   upstream_blocks:

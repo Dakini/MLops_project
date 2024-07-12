@@ -1,21 +1,21 @@
 LOCAL_TAG:=$(shell date +"%Y-%m-%d-%H-%M")
-LOCAL_IMAGE_NAME:=spotify-prediction:${LOCAL_TAG}
+LOCAL_IMAGE_NAME:=diabetes-predict:${LOCAL_TAG}
 
-test:
+test: quality_checks
 	pytest tests/
 
-quality_checks:
+quality_checks: setup
 	black .
 	flake8 .
 
-build: quality_checks test
-	docker build -t ${LOCAL_IMAGE_NAME} .
+# build: quality_checks test
+# 	docker build -t ${LOCAL_IMAGE_NAME} .
 
-setup_mlflow: #setup #build
-	LOCAL_IMAGE_NAME=${LOCAL_IMAGE_NAME} mlflow-orchestration/setup.sh
+setup_server: setup #build
+	LOCAL_IMAGE_NAME=${LOCAL_IMAGE_NAME} orchestration/setup.sh
 
-destroy_mlflow:
-	mlflow-orchestration/destroy.sh
+destroy:
+	orchestration/destroy.sh
 
 setup:
 	pipenv install --dev

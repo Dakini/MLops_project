@@ -47,7 +47,7 @@ services:
       - .env
     build:
       context: ../
-      dockerfile: ./mlflow-orchestration/mage_docker/Dockerfile
+      dockerfile: ./orchestration/mage_docker/Dockerfile
     environment:
       USER_CODE_PATH: ${PROJECT_NAME}
     ports:
