@@ -1,9 +1,16 @@
-import pickle
 import pandas as pd
+import mlflow
+from mlflow import MlflowClient
 from flask import Flask, request, jsonify
 
-with open("model.pkl", "rb") as f_in:
-    model = pickle.load(f_in)
+uri = "http://localhost:5001"
+mlflow.set_tracking_uri(uri=uri)
+mlflow.set_experiment("diabetes")
+client = MlflowClient(tracking_uri=uri)
+logged_model = client.get_model_version_by_alias("diabetes_model", "champion")
+run_id = logged_model.run_id
+
+model = mlflow.pyfunc.load_model(logged_model.source)
 
 
 def prepare_features(event):
@@ -30,7 +37,7 @@ def predict_endpoint():
     print(f"Prepared features: {features}")  # Debugging line
 
     preds = predict(features)
-    result = {"outcome": int(preds)}
+    result = {"outcome": int(preds), "model_version": str(run_id)}
     print(f"Prediction result: {result}")  # Debugging line
 
     return jsonify(result)
