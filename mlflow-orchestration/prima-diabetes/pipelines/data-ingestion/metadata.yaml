@@ -18,7 +18,7 @@ blocks:
   type: data_loader
   upstream_blocks: []
   uuid: training_pipeline
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks:
@@ -35,7 +35,7 @@ blocks:
   upstream_blocks:
   - training_pipeline
   uuid: mellow_violet
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks:
@@ -53,7 +53,7 @@ blocks:
   upstream_blocks:
   - mellow_violet
   uuid: lowercase_columns
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks:
@@ -70,7 +70,7 @@ blocks:
   upstream_blocks:
   - lowercase_columns
   uuid: split_data
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks:
@@ -88,7 +88,7 @@ blocks:
   upstream_blocks:
   - split_data
   uuid: create_train_data
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: teal
   configuration: {}
   downstream_blocks:
@@ -105,7 +105,7 @@ blocks:
   upstream_blocks:
   - create_train_data
   uuid: random_forest
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: teal
   configuration: {}
   downstream_blocks:
@@ -122,7 +122,7 @@ blocks:
   upstream_blocks:
   - create_train_data
   uuid: xgboost_training
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: yellow
   configuration: {}
   downstream_blocks: []
@@ -163,7 +163,7 @@ type: python
 uuid: data-ingestion
 variables_dir: /home/src/mage_data/prima-diabetes
 widgets:
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration:
     chart_style: vertical
