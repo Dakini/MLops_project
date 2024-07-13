@@ -28,6 +28,7 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - mlflow_network
+      - frontend
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -58,9 +59,25 @@ services:
     command: sh -c 'mage start ${PROJECT_NAME}'
     networks:
       - mlflow_network
+
+  grafana:
+    image: grafana/grafana
+    user: "472"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/config/grafana_datasources.yaml:/etc/grafana/provisioning/datasources/datasource.yaml:ro
+
+    networks:
+      - mlflow_network
+      - frontend
+
+    restart: always
+
 volumes:
   pgdata:
 
 networks:
   mlflow_network:
     driver: bridge
+  frontend:

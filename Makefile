@@ -11,7 +11,7 @@ quality_checks: setup
 # build: quality_checks test
 # 	docker build -t ${LOCAL_IMAGE_NAME} .
 
-setup_server: setup #build
+setup_server: #setup #build
 	LOCAL_IMAGE_NAME=${LOCAL_IMAGE_NAME} orchestration/setup.sh
 
 destroy:
