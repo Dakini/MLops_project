@@ -1,3 +1,10 @@
+import mlflow
+
+# setting up experiment name before the two trianing
+mlflow.set_tracking_uri(uri="http://mlflow:5001")
+mlflow.set_experiment("diabetes")
+
+
 if "transformer" not in globals():
     from mage_ai.data_preparation.decorators import transformer
 if "test" not in globals():

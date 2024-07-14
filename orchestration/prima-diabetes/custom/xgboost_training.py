@@ -66,7 +66,7 @@ def transform_custom(data, *args, **kwargs):
         verbose=False,
     )
 
-    return {}
+    return data
 
 
 @test

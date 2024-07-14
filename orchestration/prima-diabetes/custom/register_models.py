@@ -10,7 +10,7 @@ if "custom" not in globals():
 
 
 @custom
-def transform_custom(*args, **kwargs):
+def transform_custom(data, *args, **kwargs):
     """
     args: The output from any upstream parent blocks (if applicable)
 
@@ -31,4 +31,4 @@ def transform_custom(*args, **kwargs):
     client = MlflowClient()
     client.set_registered_model_alias(model_name, "champion", model_version.version)
 
-    return {}
+    return data
