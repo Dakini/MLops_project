@@ -51,9 +51,6 @@ services:
       dockerfile: ./orchestration/mage_docker/Dockerfile
     environment:
       USER_CODE_PATH: ${PROJECT_NAME}
-      POSTGRES_USER2: "Timothy"
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
 
     ports:
       - 6789:6789
@@ -71,7 +68,10 @@ services:
       - "3000:3000"
     volumes:
       - ./grafana/config/grafana_datasources.yaml:/etc/grafana/provisioning/datasources/datasource.yaml:ro
-
+      # - ./grafana/config/grafana_dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
+      # - ./grafana/dashboards:/opt/grafana/dashboards
+    depends_on:
+      - postgres
     networks:
       - mlflow_network
       - frontend
