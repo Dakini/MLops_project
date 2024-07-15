@@ -10,3 +10,4 @@ exclude =
 max-line-length = 88
 # Set max complexity (optional, if you want to limit complexity)
 max-complexity = 10
+extend-ignore = F821 E501
