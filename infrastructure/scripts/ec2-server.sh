@@ -27,6 +27,6 @@ source ~/.bashrc
 
 cd home/ec2-user
 
-git clone https://github.com/Dakini/prima-diabetes-mlops
+git clone https://github.com/Dakini/MLops_project.git
 cd prima-diabetes-mlops
 git checkout remote
