@@ -29,13 +29,13 @@ blocks:
   language: python
   name: mellow violet
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: transformer
   upstream_blocks:
   - training_pipeline
   uuid: mellow_violet
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks:
@@ -47,13 +47,13 @@ blocks:
   language: python
   name: lowercase_columns
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: transformer
   upstream_blocks:
   - mellow_violet
   uuid: lowercase_columns
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks:
@@ -64,13 +64,13 @@ blocks:
   language: python
   name: split data
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: transformer
   upstream_blocks:
   - lowercase_columns
   uuid: split_data
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks:
@@ -116,7 +116,7 @@ blocks:
   language: python
   name: xgboost-training
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: custom
   upstream_blocks:
@@ -133,7 +133,7 @@ blocks:
   language: python
   name: register_models
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: custom
   upstream_blocks:
@@ -222,7 +222,7 @@ type: python
 uuid: data-ingestion
 variables_dir: /home/src/mage_data/prima-diabetes
 widgets:
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration:
     chart_style: vertical

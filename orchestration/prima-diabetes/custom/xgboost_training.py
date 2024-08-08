@@ -20,7 +20,7 @@ mlflow.set_experiment("diabetes")
 @custom
 def transform_custom(data, *args, **kwargs):
     """
-    args: The output from any upstream parent blocks (if applicable)
+    Doing hyperopt training for the dataset using xgboost
 
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
@@ -56,7 +56,7 @@ def transform_custom(data, *args, **kwargs):
         "objective": "reg:linear",
         "seed": 42,
     }
-
+    
     fmin(
         fn=objective,
         space=search_space,

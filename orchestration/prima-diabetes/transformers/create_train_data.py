@@ -14,17 +14,7 @@ if "test" not in globals():
 @transformer
 def transform(data, *args, **kwargs):
     """
-    Template code for a transformer block.
-
-    Add more parameters to this function if this block has multiple parent blocks.
-    There should be one parameter for each output variable from each parent block.
-
-    Args:
-        data: The output from the upstream parent block
-        args: The output from any additional upstream blocks (if applicable)
-
-    Returns:
-        Anything (e.g. data frame, dictionary, array, int, str, etc.)
+    Creatin the X,y data for train and validation
     """
     # Specify your transformation logic here
     train, val = data
@@ -42,6 +32,6 @@ def transform(data, *args, **kwargs):
 @test
 def test_output(x_train, y_train, x_val, y_val, *args) -> None:
     """
-    Template code for testing the output of the block.
+    checking that the train_data is the same length
     """
     assert len(x_train) == 537, "The output is undefined"

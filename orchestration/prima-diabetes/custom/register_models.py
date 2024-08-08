@@ -12,7 +12,7 @@ if "custom" not in globals():
 @custom
 def transform_custom(data, *args, **kwargs):
     """
-    args: The output from any upstream parent blocks (if applicable)
+   function to look for the best performing model and register it as the champion model
 
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)

@@ -22,8 +22,7 @@ def combine_data(data: pd.DataFrame, outcome: list[int], pred_outcomes: list[int
 @custom
 def transform_custom(data, *args, **kwargs):
     """
-    args: The output from any upstream parent blocks (if applicable)
-
+    Create monitoring data including traind and validation predictions
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
