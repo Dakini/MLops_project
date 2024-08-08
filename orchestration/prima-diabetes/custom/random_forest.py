@@ -6,14 +6,12 @@ from sklearn.metrics import f1_score
 import mlflow
 
 
-mlflow.set_tracking_uri(uri="http://mlflow:5001")
+mlflow.set_tracking_uri(uri="http://mlflow:5002")
 mlflow.set_experiment("diabetes")
 # mlflow.set_tracking_uri(uri=f"http://{host}:5001")
 # print(experiment_name)
 if "custom" not in globals():
     from mage_ai.data_preparation.decorators import custom
-if "test" not in globals():
-    from mage_ai.data_preparation.decorators import test
 
 
 @custom
@@ -40,8 +38,3 @@ def transform_custom(data, *args, **kwargs):
 
         mlflow.sklearn.log_model(pipeline, artifact_path="model")
     return {}
-
-
-
-
-

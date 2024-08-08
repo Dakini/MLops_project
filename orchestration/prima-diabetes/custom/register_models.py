@@ -2,7 +2,7 @@ import mlflow
 from mlflow import MlflowClient
 import time
 
-mlflow.set_tracking_uri(uri="http://mlflow:5001")
+mlflow.set_tracking_uri(uri="http://mlflow:5002")
 mlflow.set_experiment("diabetes")
 
 if "custom" not in globals():
@@ -12,10 +12,10 @@ if "custom" not in globals():
 @custom
 def transform_custom(data, *args, **kwargs):
     """
-   function to look for the best performing model and register it as the champion model
+    function to look for the best performing model and register it as the champion model
 
-    Returns:
-        Anything (e.g. data frame, dictionary, array, int, str, etc.)
+     Returns:
+         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
     # Specify your custom logic here
     best_run = mlflow.search_runs(

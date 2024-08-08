@@ -13,7 +13,7 @@ if "test" not in globals():
     from mage_ai.data_preparation.decorators import test
 
 
-mlflow.set_tracking_uri(uri="http://mlflow:5001")
+mlflow.set_tracking_uri(uri="http://mlflow:5002")
 mlflow.set_experiment("diabetes")
 
 
@@ -56,7 +56,7 @@ def transform_custom(data, *args, **kwargs):
         "objective": "reg:linear",
         "seed": 42,
     }
-    
+
     fmin(
         fn=objective,
         space=search_space,

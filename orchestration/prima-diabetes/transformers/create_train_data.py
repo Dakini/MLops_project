@@ -1,7 +1,7 @@
 import mlflow
 
 # setting up experiment name before the two trianing
-mlflow.set_tracking_uri(uri="http://mlflow:5001")
+mlflow.set_tracking_uri(uri="http://mlflow:5002")
 mlflow.set_experiment("diabetes")
 
 

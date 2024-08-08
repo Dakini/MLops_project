@@ -2,7 +2,7 @@ import mlflow
 from mlflow import MlflowClient
 import pandas as pd
 
-uri = "http://mlflow:5001"
+uri = "http://mlflow:5002"
 mlflow.set_tracking_uri(uri=uri)
 mlflow.set_experiment("diabetes")
 
