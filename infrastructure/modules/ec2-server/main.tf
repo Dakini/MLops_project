@@ -11,7 +11,9 @@ resource "aws_instance" "mlflow-server" {
   tags = {
     Name = "${var.project_id}" #need to adjust that to include a server name
   }
-
+  root_block_device {
+    volume_size = 20 # Size in GB
+  }
   # provisioner "remote-exec"{
   #   inline = [
   #     "git clone https://github.com/Dakini/prima-diabetes-mlops.git",
