@@ -19,5 +19,4 @@ destroy:
 
 setup:
 	pipenv install --dev
-	export PYTHONPATH=$PYTHONPATH:${pwd}/project_code
 	pre-commit install
