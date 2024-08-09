@@ -4,7 +4,7 @@ services:
     environment:
       - MLFLOW_TRACKING_URI=http://mlflow:5002
       - MLFLOW_BACKEND_STORE_URI=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
-      - MLFLOW_ARTIFACT_STORE=s3://${S3_BUCKET_NAME}/
+      - MLFLOW_ARTIFACT_STORE=s3://${S3_MLFLOW_BUCKET_NAME}/
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     ports:
@@ -12,7 +12,7 @@ services:
     depends_on:
       - postgres
 
-    command: sh -c 'pip install boto3 psycopg2-binary && mlflow server --backend-store-uri postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB} --default-artifact-root s3://${S3_BUCKET_NAME} --host ${HOST} --port 5002'
+    command: sh -c 'pip install boto3 psycopg2-binary && mlflow server --backend-store-uri postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB} --default-artifact-root s3://${S3_MLFLOW_BUCKET_NAME} --host ${HOST} --port 5002'
     networks:
       - mlflow_network
 

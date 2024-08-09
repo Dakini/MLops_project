@@ -25,7 +25,12 @@ module "mlflow-bucket" {
   mlflow-bucket = var.mlflow-bucket-name
 }
 
-
+#create a serving bucket
+module "mlflow-bucket" {
+  source        = "./modules/s3"
+  project-id    = var.project_id
+  mlflow-bucket = var.serving-bucket-name
+}
 #create a ec2 instance to launch docker compose on
 #expose ports and other stuff.
 

@@ -14,6 +14,12 @@ variable "mlflow-bucket-name" {
   default     = "mlflow-model-3-bucket"
 
 }
+
+variable "serving-bucket-name" {
+  description = "name of the s3 serving bucket"
+  default     = "prima-diabetes-serving-bucket"
+}
+
 variable "db_name" {
   description = "name of the rds database"
   default     = "projectDb"

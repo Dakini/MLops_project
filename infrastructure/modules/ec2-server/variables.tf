@@ -6,9 +6,23 @@ variable "project_id" {
 }
 
 
-variable "bucket-arn" {
+variable "artifact-bucket-arn" {
   description = "bucket arn"
 }
+
+variable "artifact-bucket-name" {
+  description = "artifact bucket-name"
+}
+
+
+variable "serving-bucket-arn" {
+  description = "bucket arn"
+}
+
+variable "serving-bucket-name" {
+  description = "artifact bucket-name"
+}
+
 variable "db_name" {
   description = "db name"
 }
@@ -17,8 +31,4 @@ variable "db_username" {
 }
 variable "db_password" {
   description = "db username"
-}
-
-variable "bucket-name" {
-  description = "bucket-arn"
 }

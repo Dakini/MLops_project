@@ -5,3 +5,4 @@ evidently
 psycopg2-binary
 pandas
 sqlalchemy
+boto3

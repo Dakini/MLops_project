@@ -14,20 +14,62 @@ resource "aws_instance" "mlflow-server" {
   root_block_device {
     volume_size = 20 # Size in GB
   }
-  # provisioner "remote-exec"{
-  #   inline = [
-  #     "git clone https://github.com/Dakini/prima-diabetes-mlops.git",
-  #     "cd prima-diabetes-mlops "
+ provisioner "remote-exec" {
+    inline = [
+      # Update the package list
+      "sudo yum update -y",
 
-  #   ]
+      # Install Docker and Git
+      "sudo yum install docker -y",
+      "sudo yum install git -y",
 
-  #   connection {
-  #     type        = "ssh"
-  #     user        = "ec2-user"
-  #     private_key = file("${var.shh-key-name}.pem") # Replace with the path to your private key
-  #     host        = self.public_ip
-  #   }
-  # }
+      # Start and enable Docker
+      "sudo systemctl start docker",
+      "sudo systemctl enable docker",
+
+      # Add the current user (ec2-user) to the docker group
+      "sudo usermod -aG docker ec2-user",
+
+      # Download Docker Compose and set the permissions
+      "sudo curl -L 'https://github.com/docker/compose/releases/download/v2.29.0/docker-compose-$(uname -s)-$(uname -m)' -o /usr/local/bin/docker-compose",
+      "sudo chmod +x /usr/local/bin/docker-compose",
+
+      # Install Python and pip
+      "sudo yum install python3 -y",
+      "sudo yum install python3-pip -y",
+
+      # Source the .bashrc file to apply the changes
+      "source ~/.bashrc",
+
+      # Clone the repository
+      "cd /home/ec2-user",
+      "git clone https://github.com/Dakini/MLops_project.git",
+      "cd MLops_project",
+      "git checkout remote",
+
+      # Generate .env file
+      <<-EOF > /home/ec2-user/MLops_project/orchestration/.env
+      AWS_ACCESS_KEY_ID=test
+      AWS_SECRET_ACCESS_KEY=random_passw0rd
+      S3_MLFLOW_BUCKET_NAME=var.artifact-bucket-name
+      S3_SERVING_BUCKET=var.serving-bucket-name
+      POSTGRES_USER=var.db_username
+      POSTGRES_PASSWORD=var.db_password
+      POSTGRES_DB=var.db_name
+      PROJECT_NAME =prima-diabetes
+      HOST=0.0.0.0
+      EXPERIMENT_NAME ='prima-diabetes'
+      EOF
+    ]
+  }
+
+    connection {
+      type        = "ssh"
+      user        = "ec2-user"
+      private_key = file("${var.shh-key-name}.pem") # Replace with the path to your private key
+      host        = self.public_ip
+    }
+  }
 
 }
 
