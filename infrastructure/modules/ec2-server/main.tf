@@ -7,7 +7,7 @@ resource "aws_instance" "mlflow-server" {
   security_groups = [aws_security_group.ec2_sg.name]
   iam_instance_profile = aws_iam_instance_profile.mlflow-instance-profile.id
 
-  user_data = file("scripts/ec2-server.sh") #can make variable
+
   tags = {
     Name = "${var.project_id}" #need to adjust that to include a server name
   }
@@ -31,7 +31,10 @@ resource "aws_instance" "mlflow-server" {
       "sudo usermod -aG docker ec2-user",
 
       # Download Docker Compose and set the permissions
-      "sudo curl -L 'https://github.com/docker/compose/releases/download/v2.29.0/docker-compose-$(uname -s)-$(uname -m)' -o /usr/local/bin/docker-compose",
+      <<-EOF
+      sudo curl -L "https://github.com/docker/compose/releases/download/v2.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+      EOF
+      ,
       "sudo chmod +x /usr/local/bin/docker-compose",
 
       # Install Python and pip
@@ -48,18 +51,16 @@ resource "aws_instance" "mlflow-server" {
       "git checkout remote",
 
       # Generate .env file
-      <<-EOF > /home/ec2-user/MLops_project/orchestration/.env
-      AWS_ACCESS_KEY_ID=test
-      AWS_SECRET_ACCESS_KEY=random_passw0rd
-      S3_MLFLOW_BUCKET_NAME=var.artifact-bucket-name
-      S3_SERVING_BUCKET=var.serving-bucket-name
-      POSTGRES_USER=var.db_username
-      POSTGRES_PASSWORD=var.db_password
-      POSTGRES_DB=var.db_name
-      PROJECT_NAME =prima-diabetes
-      HOST=0.0.0.0
-      EXPERIMENT_NAME ='prima-diabetes'
-      EOF
+      "echo 'S3_MLFLOW_BUCKET_NAME=${var.artifact-bucket-name}' >> /home/ec2-user/MLops_project/orchestration/.env",
+      "echo 'S3_SERVING_BUCKET=${var.serving-bucket-name}' >> /home/ec2-user/MLops_project/orchestration/.env",
+      "echo 'POSTGRES_USER=${var.db_username}' >> /home/ec2-user/MLops_project/orchestration/.env",
+      "echo 'POSTGRES_PASSWORD=${var.db_password}' >> /home/ec2-user/MLops_project/orchestration/.env",
+      "echo 'POSTGRES_DB=${var.db_name}' >> /home/ec2-user/MLops_project/orchestration/.env",
+      "echo 'PROJECT_NAME=prima-diabetes' >> /home/ec2-user/MLops_project/orchestration/.env",
+      "echo 'HOST=0.0.0.0' >> /home/ec2-user/MLops_project/orchestration/.env",
+      "echo 'EXPERIMENT_NAME=\"prima-diabetes\"' >> /home/ec2-user/MLops_project/orchestration/.env",
+      "cd  orchestration",
+      "sudo docker-compose up  --build -d"
     ]
   }
 
@@ -71,7 +72,7 @@ resource "aws_instance" "mlflow-server" {
     }
   }
 
-}
+
 
 
 # RSA key of size 4096 bits
@@ -108,8 +109,8 @@ resource "aws_security_group" "ec2_sg" {
 
     ingress {
       description = "Mlflow-server"
-      from_port = 5001
-      to_port = 5001
+      from_port = 5002
+      to_port = 5002
       protocol = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
       ipv6_cidr_blocks = ["::/0"]

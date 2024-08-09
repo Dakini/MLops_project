@@ -29,8 +29,10 @@ resource "aws_iam_policy" "mlflow_artifact_policy" {
         ],
         Effect   = "Allow",
         Resource = [
-          "${var.bucket-arn}",
-          "${var.bucket-arn}/*"
+          "${var.artifact-bucket-arn}",
+          "${var.artifact-bucket-arn}/*",
+          "${var.serving-bucket-arn}",
+          "${var.serving-bucket-arn}/*"
         ]
       }
     ]

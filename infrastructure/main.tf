@@ -26,7 +26,7 @@ module "mlflow-bucket" {
 }
 
 #create a serving bucket
-module "mlflow-bucket" {
+module "serving-bucket" {
   source        = "./modules/s3"
   project-id    = var.project_id
   mlflow-bucket = var.serving-bucket-name
@@ -38,9 +38,12 @@ module "mlflow-server" {
   source = "./modules/ec2-server"
   project_id = var.project_id
   shh-key-name = var.ssh-key-name
-  depends_on = [ module.mlflow-bucket]
-  bucket-arn = module.mlflow-bucket.bucket-arn
-  bucket-name = module.mlflow-bucket.bucket-name
+  depends_on = [ module.mlflow-bucket, module.serving-bucket]
+  artifact-bucket-arn = module.mlflow-bucket.bucket-arn
+  artifact-bucket-name = module.mlflow-bucket.bucket-name
+
+  serving-bucket-arn = module.serving-bucket.bucket-arn
+  serving-bucket-name = module.serving-bucket.bucket-name
 
   db_password = var.db_password
   db_name = var.db_name
