@@ -30,4 +30,5 @@ jobs:
 
       - name: Integration Test
         working-directory: "deployment"
-        run: ls
+        run: |
+          . run.sh
