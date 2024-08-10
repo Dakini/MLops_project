@@ -1,40 +1,52 @@
-
-
 variable "aws_region" {
   description = "aws region"
-  default     = "eu-west-2"
 }
 
 variable "project_id" {
   description = "project-id"
-  default     = "prima-diabetes"
 }
 variable "mlflow-bucket-name" {
   description = "name of the s3 bucket"
-  default     = "mlflow-model-3-bucket"
-
 }
 
 variable "serving-bucket-name" {
   description = "name of the s3 serving bucket"
-  default     = "prima-diabetes-serving-bucket"
 }
 
 variable "db_name" {
   description = "name of the rds database"
-  default     = "projectDb"
 }
 variable "db_username" {
   description = "postgress user name"
-  default     = "postgresS"
 }
 
+variable "source_stream_name" {
+  description = "name of the source kinesis stream"
+}
+
+variable "output_stream_name" {
+  description = "name of the source kinesis stream"
+}
 variable "db_password" {
   description = "postgress password"
-  default     = "passw0rd"
 }
 
 variable "ssh-key-name" {
   description = "name of the ssh key for the ec2 instance"
-  default     = "ssh-key"
+}
+
+variable "lambda_function_local_path" {
+  description = ""
+}
+
+variable "docker_image_local_path" {
+  description = ""
+}
+
+variable "ecr_repo_name" {
+  description = ""
+}
+
+variable "lambda_function_name" {
+  description = ""
 }

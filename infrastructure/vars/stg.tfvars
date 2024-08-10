@@ -1,0 +1,16 @@
+
+
+aws_region="eu-west-2"
+project_id="prima-diabetes"
+mlflow-bucket-name="mlflow-model-3-bucket"
+serving-bucket-name="prima-diabetes-serving-bucket"
+db_name="projectDb"
+db_username="postgresS"
+db_password="passw0rd"
+ssh-key-name="ssh-key"
+source_stream_name="input-kinesis-steam"
+output_stream_name="output-kinesis-steam"
+lambda_function_local_path="../deployment/lambda_function.py"
+docker_image_local_path="../deployment/Dockerfile"
+ecr_repo_name="stg_stream_model_prediction"
+lambda_function_name = "stg_prediction_lambda"
