@@ -29,6 +29,6 @@ jobs:
         run: pipenv run flake8 .
 
       - name: Integration Test
-        working-directory: "deployment"
+        working-directory: "deployment/integration-test"
         run: |
           . run.sh
