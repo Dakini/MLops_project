@@ -1,6 +1,6 @@
 LOCAL_TAG:=$(shell date +"%Y-%m-%d-%H-%M")
-# LOCAL_IMAGE_NAME:=diabetes-predict:${LOCAL_TAG}
-LOCAL_IMAGE_NAME:=595213217453.dkr.ecr.eu-west-2.amazonaws.com/stg_stream_model_prediction-prima-diabetes
+LOCAL_IMAGE_NAME:=diabetes-predict:${LOCAL_TAG}
+
 test:
 	pytest deployment/tests/
 
