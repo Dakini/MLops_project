@@ -100,12 +100,12 @@ module "prediction_lambda" {
 
 #provide a way to ssh in but also the DNS to go to the services, such as Grafana or that.
 
-output "mlflow-server-ip" {
-  value = module.mlflow-server.ip
-}
-output "mlflow-server-dns" {
-  value = module.mlflow-server.dns
-}
+# output "mlflow-server-ip" {
+#   value = module.mlflow-server.ip
+# }
+# output "mlflow-server-dns" {
+#   value = module.mlflow-server.dns
+# }
 
 output "lambda_function" {
   value     = "${var.lambda_function_name}_${var.project_id}"
