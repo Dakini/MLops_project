@@ -22,7 +22,7 @@ resource null_resource ecr_image {
      command = <<EOF
              aws ecr get-login-password --region ${var.region} | docker login --username AWS --password-stdin ${var.account_id}.dkr.ecr.${var.region}.amazonaws.com
              aws s3 sync ../deployment/integration-test/model s3://${var.serving_bucket}/champion
-             docker build -t ${aws_ecr_repository.repo.repository_url}:${var.ecr_image_tag} ../deployment/
+             docker buildx build --platform linux/amd64 -t ${aws_ecr_repository.repo.repository_url}:${var.ecr_image_tag} ../deployment/
              docker push ${aws_ecr_repository.repo.repository_url}:${var.ecr_image_tag}
          EOF
    }

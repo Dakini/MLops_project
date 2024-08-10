@@ -82,21 +82,21 @@ module "prediction_lambda" {
 # #create a ec2 instance to launch docker compose on
 # #expose ports and other stuff.
 
-module "mlflow-server" {
-  source = "./modules/ec2-server"
-  project_id = var.project_id
-  shh-key-name = var.ssh-key-name
-  depends_on = [ module.mlflow-bucket, module.serving-bucket]
-  artifact-bucket-arn = module.mlflow-bucket.bucket-arn
-  artifact-bucket-name = module.mlflow-bucket.bucket-name
+# module "mlflow-server" {
+#   source = "./modules/ec2-server"
+#   project_id = var.project_id
+#   shh-key-name = var.ssh-key-name
+#   depends_on = [ module.mlflow-bucket, module.serving-bucket]
+#   artifact-bucket-arn = module.mlflow-bucket.bucket-arn
+#   artifact-bucket-name = module.mlflow-bucket.bucket-name
 
-  serving-bucket-arn = module.serving-bucket.bucket-arn
-  serving-bucket-name = module.serving-bucket.bucket-name
+#   serving-bucket-arn = module.serving-bucket.bucket-arn
+#   serving-bucket-name = module.serving-bucket.bucket-name
 
-  db_password = var.db_password
-  db_name = var.db_name
-  db_username = var.db_username
-}
+#   db_password = var.db_password
+#   db_name = var.db_name
+#   db_username = var.db_username
+# }
 
 #provide a way to ssh in but also the DNS to go to the services, such as Grafana or that.
 
