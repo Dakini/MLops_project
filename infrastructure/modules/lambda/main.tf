@@ -15,7 +15,7 @@ resource "aws_lambda_function" "kinesis_lambda" {
       MODEL_BUCKET = var.model_bucket
     }
   }
-  timeout = 180
+  timeout = 600
 }
 
 # Lambda Invoke & Event Source Mapping:
