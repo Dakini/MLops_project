@@ -13,14 +13,14 @@ if "test" not in globals():
     from mage_ai.data_preparation.decorators import test
 
 
-mlflow.set_tracking_uri(uri="http://mlflow:5001")
+mlflow.set_tracking_uri(uri="http://mlflow:5002")
 mlflow.set_experiment("diabetes")
 
 
 @custom
 def transform_custom(data, *args, **kwargs):
     """
-    args: The output from any upstream parent blocks (if applicable)
+    Doing hyperopt training for the dataset using xgboost
 
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)

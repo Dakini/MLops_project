@@ -82,13 +82,13 @@ blocks:
   language: python
   name: create train data
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks:
   - split_data
   uuid: create_train_data
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: teal
   configuration: {}
   downstream_blocks:
@@ -99,13 +99,13 @@ blocks:
   language: python
   name: random_forest
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: custom
   upstream_blocks:
   - create_train_data
   uuid: random_forest
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: teal
   configuration: {}
   downstream_blocks:
@@ -122,7 +122,7 @@ blocks:
   upstream_blocks:
   - create_train_data
   uuid: xgboost_training
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: yellow
   configuration: {}
   downstream_blocks:
@@ -140,7 +140,7 @@ blocks:
   - xgboost_training
   - random_forest
   uuid: register_models
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: teal
   configuration:
     file_path: custom/create_monitoring_data.py
@@ -150,19 +150,36 @@ blocks:
   - create_monitoring_data_histogram_w0
   - monitoring_evidently
   - grafana_export
+  - to_serving_s3
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
   name: create monitoring data
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: custom
   upstream_blocks:
   - register_models
   uuid: create_monitoring_data
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: to serving s3
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - create_monitoring_data
+  uuid: to_serving_s3
+- all_upstream_blocks_executed: true
   color: pink
   configuration:
     file_path: custom/monitoring_evidently.py
@@ -182,7 +199,7 @@ blocks:
   upstream_blocks:
   - create_monitoring_data
   uuid: monitoring_evidently
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: pink
   configuration: {}
   downstream_blocks: []
@@ -242,7 +259,7 @@ widgets:
   upstream_blocks:
   - lowercase_columns
   uuid: lowercase_columns_bar_chart_p1
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration:
     buckets: 10

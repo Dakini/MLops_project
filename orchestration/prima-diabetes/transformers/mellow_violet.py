@@ -31,16 +31,8 @@ def execute_transformer_action(df: DataFrame, *args, **kwargs) -> DataFrame:
 
 
 @test
-def test_output(output, *args) -> None:
-    """
-    Template code for testing the output of the block.
-    """
-    assert output is not None, "The output is undefined"
-
-
-@test
 def test_length(output, *args) -> None:
     """
-    Template code for testing the output of the block.
+    test length of the data set
     """
     assert len(output) == 768, "The output is not the same length"

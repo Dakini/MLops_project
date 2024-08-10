@@ -2,7 +2,7 @@ import mlflow
 from mlflow import MlflowClient
 import pandas as pd
 
-uri = "http://mlflow:5001"
+uri = "http://mlflow:5002"
 mlflow.set_tracking_uri(uri=uri)
 mlflow.set_experiment("diabetes")
 
@@ -22,8 +22,7 @@ def combine_data(data: pd.DataFrame, outcome: list[int], pred_outcomes: list[int
 @custom
 def transform_custom(data, *args, **kwargs):
     """
-    args: The output from any upstream parent blocks (if applicable)
-
+    Create monitoring data including traind and validation predictions
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
@@ -31,7 +30,7 @@ def transform_custom(data, *args, **kwargs):
     x_train, y_train, x_val, y_val = data
     client = MlflowClient(tracking_uri=uri)
     logged_model = client.get_model_version_by_alias("diabetes_model", "champion")
-
+    print(logged_model)
     model = mlflow.pyfunc.load_model(logged_model.source)
     train_preds = model.predict(x_train)
     train_preds = (train_preds > 0.5).astype(int)
@@ -45,8 +44,16 @@ def transform_custom(data, *args, **kwargs):
 
 
 @test
-def test_output(output, *args) -> None:
+def test_train_len(train_data, validation_data, *args) -> None:
     """
-    Template code for testing the output of the block.
+    Check the length of the train data == 537
     """
-    assert output is not None, "The output is undefined"
+    assert len(train_data) == 537, "The output is not same length"
+
+
+@test
+def test_val_len(train_data, validation_data, *args) -> None:
+    """
+    Check the length of the validation data == 213
+    """
+    assert len(validation_data) == 231, "The output is not same length"

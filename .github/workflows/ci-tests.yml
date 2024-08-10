@@ -1,0 +1,35 @@
+name: CI-Tests
+on:
+  push:
+    branches:
+      - "main"
+      - "remote"
+    paths:
+      - "deployment/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10
+
+      - name: Install dependencies
+        working-directory: "deployment"
+        run: pip install pipenv && pipenv install --dev
+
+      - name: Run Unit tests
+        working-directory: "deployment"
+        run: pipenv run pytest tests/
+
+      - name: Lint
+        working-directory: "deployment"
+        run: pipenv run flake8 .
+
+      - name: Integration Test
+        working-directory: "deployment/integraton-test"
+        run: |
+          . run.sh

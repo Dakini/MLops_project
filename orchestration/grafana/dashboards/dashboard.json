@@ -18,13 +18,12 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
   "links": [],
   "panels": [
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "cdrpzb9wdm51cb"
+        "uid": "PCC52D03280B7034C"
       },
       "fieldConfig": {
         "defaults": {
@@ -50,7 +49,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -117,7 +117,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "cdrpzb9wdm51cb"
+        "uid": "PCC52D03280B7034C"
       },
       "fieldConfig": {
         "defaults": {
@@ -143,7 +143,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -222,6 +223,6 @@
   "timezone": "browser",
   "title": "Dashboard",
   "uid": "edrpzvnxgy7swd",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }

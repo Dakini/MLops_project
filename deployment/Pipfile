@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+boto3 = "*"
+mlflow = "*"
+scikit-learn = "==1.5.1"
+flask = "*"
+gunicorn = "*"
+pyyaml = "*"
+deepdiff = "*"
+
+[dev-packages]
+pytest = "*"
+flake8 = "*"
+pre-commit = "*"
+deepdiff = "*"
+requests = "*"
+
+[requires]
+python_version = "3.10"
