@@ -67,6 +67,18 @@ module "ecr_image" {
   serving_bucket             = module.serving-bucket.bucket-name
 
 }
+
+module "prediction_lambda" {
+  source = "./modules/lambda"
+  image_uri = module.ecr_image.image_uri
+  source_stream_name = "${var.source_stream_name}-${var.project_id}"
+  source_stream_arn = module.input_stream.stream_arn
+  output_stream_name = "${var.output_stream_name}-${var.project_id}"
+  output_stream_arn = module.output_stream.stream_arn
+  model_bucket = module.serving-bucket.bucket-name
+  lambda_function_name = "${var.lambda_function_name}_${var.project_id}"
+
+}
 # #create a ec2 instance to launch docker compose on
 # #expose ports and other stuff.
 
@@ -94,3 +106,17 @@ module "ecr_image" {
 # output "mlflow-server-dns" {
 #   value = module.mlflow-server.dns
 # }
+
+output "lambda_function" {
+  value     = "${var.lambda_function_name}_${var.project_id}"
+}
+
+output "predictions_source_stream_name" {
+  value     = "${var.source_stream_name}-${var.project_id}"
+}
+output "predictions_output_stream_name" {
+  value     = "${var.output_stream_name}-${var.project_id}"
+}
+output "ecr_repo" {
+  value = "${var.ecr_repo_name}_${var.project_id}"
+}

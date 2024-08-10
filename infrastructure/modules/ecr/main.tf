@@ -21,16 +21,15 @@ resource null_resource ecr_image {
    provisioner "local-exec" {
      command = <<EOF
              aws ecr get-login-password --region ${var.region} | docker login --username AWS --password-stdin ${var.account_id}.dkr.ecr.${var.region}.amazonaws.com
-             cd ../deployment
-             aws s3 sync integration-test/model s3://${var.serving_bucket}/champion
-             docker build -t ${aws_ecr_repository.repo.repository_url}:${var.ecr_image_tag} .
+             aws s3 sync ../deployment/integration-test/model s3://${var.serving_bucket}/champion
+             docker build -t ${aws_ecr_repository.repo.repository_url}:${var.ecr_image_tag} ../deployment/
              docker push ${aws_ecr_repository.repo.repository_url}:${var.ecr_image_tag}
          EOF
    }
 }
 
 // Wait for the image to be uploaded, before lambda config runs
-data aws_ecr_image lambda_image {
+data aws_ecr_image "lambda_image" {
  depends_on = [
    null_resource.ecr_image
  ]

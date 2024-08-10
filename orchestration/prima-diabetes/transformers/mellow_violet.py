@@ -30,7 +30,6 @@ def execute_transformer_action(df: DataFrame, *args, **kwargs) -> DataFrame:
     return BaseAction(action).execute(df)
 
 
-
 @test
 def test_length(output, *args) -> None:
     """

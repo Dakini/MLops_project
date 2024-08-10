@@ -6,9 +6,11 @@ name = "pypi"
 [packages]
 boto3 = "*"
 mlflow = "*"
-scikit-learn = "==1.5.0"
+scikit-learn = "==1.5.1"
 flask = "*"
 gunicorn = "*"
+pyyaml = "*"
+deepdiff = "*"
 
 [dev-packages]
 pytest = "*"
