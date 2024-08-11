@@ -169,6 +169,6 @@ cython_debug/
 *.tfstate.*
 
 # ignore my run.sh
-run.sh
+
 
 .DS_store

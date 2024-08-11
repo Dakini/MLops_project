@@ -11,6 +11,7 @@ flask = "*"
 gunicorn = "*"
 pyyaml = "*"
 deepdiff = "*"
+pandas = "*"
 
 [dev-packages]
 pytest = "*"
