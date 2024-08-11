@@ -110,35 +110,6 @@ CI/CD practices are applied to automate testing and deployment, ensuring the pro
    terraform apply -var-file=vars/stg.tfvars
    ```
 
-### Installation Steps
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Dakini/MLops_project.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd MLops_project
-   ```
-3. Create a virtual environment using Pipenv:
-   ```bash
-   pip install pipenv
-   pipenv shell
-   ```
-4. Install dependencies:
-   ```bash
-   make setup
-   ```
-5. Deploy infrastructure using Terraform:
-   ```bash
-   cd infrastructure
-   terraform init
-   terraform plan -var-file=vars/stg.tfvars
-   terraform apply -var-file=vars/stg.tfvars
-   ```
-
-### Accessing Services
-
 ### Accessing Services
 
 After Terraform completes the infrastructure provisioning, it will output variables such as the EC2 DNS and public IP. You can SSH into the EC2 instance using the following command:
