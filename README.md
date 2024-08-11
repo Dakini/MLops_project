@@ -113,7 +113,7 @@ The Python version used for this project is Python 3.10.
   Where if you go to pipelines, open the data-ingestion and use the @run-once trigger it will run the pipeline.
   ![alt text](image-1.png)
 
-  The pipeline includes, data ingestion, transforming of data, MlFlow experiment tracking and registration of models for the Lambda function. It also explores hyperopt parameter tuning of XGBoost Models. It also exports the predictions to a postgres database so that Grafana can provide some plts. Evidently is also used to explore some of the stats regarding the dataset.
+  The pipeline includes, data ingestion, transforming of data, MlFlow experiment tracking and registration of models for the Lambda function. It also explores hyperopt parameter tuning of XGBoost Models. It also exports the predictions to a postgres database so that Grafana can provide some plts. Evidently is also used to explore some of the stats regarding the dataset. The code can be explored on the service, by editing the pipeline or visiting the local code [here](/orchestration/prima-diabetes).
 
   ![alt text](image-2.png)
 
