@@ -190,16 +190,16 @@ This project was also developed on a Mac with Apple Silicon, so this may explain
 
 The following best practices were implemented for this project. :
 
-- :white_check_mark: **Problem description**: The project is well described and it's clear and understandable
-- :white_check_mark: **Cloud**: The project is developed on the cloud and IaC tools are used for provisioning the infrastructure
-- :white_check_mark: **Experiment tracking and model registry**: Both experiment tracking and model registry are used
-- :white_check_mark: **Workflow orchestration**: Fully deployed workflow
-- :white_check_mark: **Model deployment**: The model deployment code is containerized and can be deployed to the cloud
-- :white_check_mark: **Model monitoring**: Basic model monitoring that calculates and reports metrics
-- :white_check_mark: **Reproducibility**: Instructions are clear, it's easy to run the code, and it works. The versions for all the dependencies are specified.
+- :white_check_mark: **Problem description**: Clear and understandable problem statement
+- :white_check_mark: **Cloud**: Fully cloud-based with Infrastructure as Code (IaC)
+- :white_check_mark: **Experiment tracking and model registry**:Utilized for all experiments and models
+- :white_check_mark: **Workflow orchestration**: Fully deployed and managed workflow
+- :white_check_mark: **Model deployment**: Containerized and deployable to the cloud
+- :white_check_mark: **Model monitoring**: Basic monitoring with metrics reporting
+- :white_check_mark: **Reproducibility**: Clear instructions, dependency versioning, and ease of use
 - :white_check_mark:**Best practices**:
-  - [x] There are unit tests
-  - [x] There is an integration test
-  - [x] Linter and code formatting are used
-  - [x] There is a Makefile
-  - [x] There is a CI/CD pipeline
+
+  - [x] Unit tests and integration tests implemented
+  - [x] Linter and code formatting tools in place
+  - [x] Makefile provided for ease of use
+  - [x] CI/CD pipeline established
