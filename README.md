@@ -29,7 +29,6 @@ The project focuses on the development of a predictive model to assess the risk 
 - Grafana
 - Mage AI
 - Hyperopt
--
 - Pytest
 - Pre-commit (black, flake8)
 
@@ -102,11 +101,11 @@ The Python version used for this project is Python 3.10.
    After terraform has completed its creation of the relevant services. It will output some variables including the ec2 DNS and ec2 public ip.
    It is possible to ssh into the ec2 using the following command
 
-```bash
-ssh -i ssh-key.pem ec2-user@<YOUR EC2 IP ADDRESS>
-```
+   ```bash
+   ssh -i ssh-key.pem ec2-user@<YOUR EC2 IP ADDRESS>
+   ```
 
-It is also possible to view the services for the Grafana, MLFlow and Mage AI. In your web browser. I encourage you to use the mage service first, so that it can fill the MLflow, and grafana service too.
+   It is also possible to view the services for the Grafana, MLFlow and Mage AI. In your web browser. I encourage you to use the mage service first, so that it can fill the MLflow, and grafana service too.
 
 - Mage AI
   If you go to the ec2PublicDNS:6789, you will find the service.
@@ -114,9 +113,9 @@ It is also possible to view the services for the Grafana, MLFlow and Mage AI. In
   Where if you go to pipelines, open the data-ingestion and use the @run-once trigger it will run the pipeline.
   ![alt text](image-1.png)
 
-The pipeline includes, data ingestion, transforming of data, MlFlow experiment tracking and registration of models for the Lambda function. It also explores hyperopt parameter tuning of XGBoost Models. It also exports the predictions to a postgres database so that Grafana can provide some plts. Evidently is also used to explore some of the stats regarding the dataset.
+  The pipeline includes, data ingestion, transforming of data, MlFlow experiment tracking and registration of models for the Lambda function. It also explores hyperopt parameter tuning of XGBoost Models. It also exports the predictions to a postgres database so that Grafana can provide some plts. Evidently is also used to explore some of the stats regarding the dataset.
 
-![alt text](image-2.png)
+  ![alt text](image-2.png)
 
 - MLFlow
   This shows the experiments that have been run, and the alias of the models that have been registerd from the run. If you go to the ec2PublicDNS:5002, you will find the service.
