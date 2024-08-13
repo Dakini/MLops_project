@@ -161,17 +161,17 @@ aws kinesis put-record \
 --stream-name ${KINESIS_STREAM_INPUT} \
 --partition-key 1 --cli-binary-format raw-in-base64-out \
 --data '{
-\"data\": {
-\"Pregnancies\": 0,
-\"Glucose\": 131,
-\"BloodPressure\": 0,
-\"SkinThickness\": 0,
-\"Insulin\": 0,
-\"BMI\": 43.2,
-\"DiabetesPedigreeFunction\": 0.27,
-\"Age\": 26
-},
-\"patient_id\": \"256\"
+"data": {
+      "Pregnancies": 0,
+      "Glucose": 131,
+      "BloodPressure": 0,
+      "SkinThickness": 0,
+      "Insulin": 0,
+      "BMI": 43.2,
+      "DiabetesPedigreeFunction": 0.27,
+      "Age": 26
+      },
+"patient_id": "256"
 }'
 ```
 
